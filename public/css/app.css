@@ -1,0 +1,176 @@
+@import "contact.css";
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.rotate {
+    -webkit-animation: rotate 4s linear infinite;
+    animation: rotate 4s linear infinite;
+}
+
+.amazingexample {
+    padding: 0.5em;
+    width: 30%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title{
+    color: grey;
+}
+
+.text-color{
+    color: grey;
+}
+
+
+.fiftyWidth {
+    width: 51%;
+}
+
+footer {
+    padding: 1.5em 0;
+    width: 100%;
+    background-color: #222222;
+    color: #ffffff;
+}
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #ffffff
+}
+
+.minimumHeight {
+    min-height: 100vh;
+}
+
+@-webkit-keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mainContainer {
+    width: 80vw;
+    max-width: 800px;
+    margin: auto;
+    padding: 1em;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+.navLink {
+    padding: 0 0.5em 0 0.5em;
+}
+
+.error {
+    color: red;
+}
+
+.flex-form {
+    display: flex;
+}
+
+.flex-form-label {
+    font-size: 1.5rem;
+}
+
+.ownInput {
+    height: 100%;
+}
+
+nav {
+    padding: 0.5em 0 0.5em 0;
+    background-color: #f3f3f3;
+}
+@media screen and (max-width: 560px){
+    .mainContainer {
+        width: 100vw;
+    }
+    .flexContainer {
+        flex-direction: column;
+    }
+}
+
+
+/* Notify CSS */
+.alert {
+    margin: 0 !important;
+    position: fixed;
+    z-index: 1000;
+    /*bottom: 0;*/
+    width: 100%;
+    border-radius: 0px;
+    transition: top 600ms ease-in-out;
+}
+
+.margin-1 {
+    padding: .33em;
+}
+.margin-2 {
+    padding-right: 0.10rem;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.buttongrid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+
+@media (max-width: 576px) {
+    .alert {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+@media (min-width: 576px) {
+    .alert {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (min-width: 768px) {
+    .alert {
+        width: 50%;
+        left: 25%;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
