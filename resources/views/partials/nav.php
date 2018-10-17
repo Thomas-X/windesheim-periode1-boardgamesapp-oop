@@ -1,17 +1,15 @@
-<nav>
+<nav style="padding: 2rem 0 2rem 0;margin: 0 0 2rem 0;">
     <div class="container">
         <div class="row container">
             <div class="col col-sm-4">
-                <a href="/"> <img style="width: 100%; height:100%;" src="/imgs/GezinshuisRegterink_logo_breed.png"
-                                  alt="logo"/></a>
+                <h5>Boardgamesapp</h5>
             </div>
             <div class="col-sm-8">
 
                 <div class="flexContainer">
                     <a class="navLink nav-link" href="/">Home</a>
-                    <a class="navLink nav-link" href="/about">About us</a>
-                    <a class="navLink nav-link" href="/contact">Contact</a>
-                    <a class="navLink nav-link" href="/upload">Upload</a>
+                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::routes['manage_game'] ?>">Manage games</a>
+                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::routes['played_games'] ?>">Played games</a>
                     <?php
                     $loggedIn = \Qui\lib\facades\Authentication::verify();
                     $user = \Qui\lib\facades\Authentication::verify(true);

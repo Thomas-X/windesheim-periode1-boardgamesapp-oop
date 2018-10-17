@@ -70,14 +70,31 @@ class CAuthentication
         return $this->generateHash((string) $str);
     }
 
+    public function makeProfile($nickname)
+    {
+        DB::insertEntry('profiles', [
+            'nickname' => $nickname,
+            'wins' => 0,
+            'losses' => 0,
+            'totalGames' => 0,
+        ]);
+        return DB::execute("SELECT LAST_INSERT_ID()")[0][0];
+    }
+    
     // TODO remove / refactor this (superadmin should only be able to do this)
     public function register($params)
     {
         // TODO check / validate parameters with Validator
         // TODO replace this token with a UUID
         try {
+            $profileId = $this->makeProfile($params['fname'] . ' ' . $params['lname']);
             $rememberMeToken = $this->generateRandomHash();
-            DB::insertEntry('users', array_merge($params, [
+            DB::insertEntry('users', array_merge([
+                'fname' => $params['fname'],
+                'lname' => $params['lname'],
+                'email' => $params['email'],
+                'profiles_id' => $profileId
+            ], [
                 'password' => $this->generateHash($params['password']),
                 'rememberMeToken' => $rememberMeToken,
                 'forgotPasswordToken' => '',

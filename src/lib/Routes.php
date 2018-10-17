@@ -19,5 +19,11 @@ class Routes
         'onRegister' => '/register',
         'resetPassword' => '/resetpassword',
         'forgotPassword' => '/forgotpassword',
+        'manage_game' => '/manage_games',
+        'add_game' => '/add_game',
+        'remove_game' => '/remove_game',
+        'update_game' => '/update_game',
+        'played_games' => '/played_games',
+        'register_played_game' => '/register_played_game',
     ];
 }

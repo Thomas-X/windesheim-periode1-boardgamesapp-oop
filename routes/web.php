@@ -3,42 +3,30 @@
 use Qui\lib\App;
 use Qui\lib\facades\Router;
 use Qui\lib\Routes;
-use Qui\lib\Request;
-use Qui\lib\Response;
-use Qui\lib\CMS_BUILDER;
 
 /*
  *
  * No middleware routes should be placed before middleware routes (is nice)
  *
  * */
-
-//    'showUpload' => '/upload',
-//    'upload' => '/upload'
-//Router::get($routes['showUpload'], 'TreatmentDocumentController@showUpload');
-// Router::post($routes['upload'], 'TreatmentDocumentController@upload');
 /*
  * GET
  * */
 Router::get(Routes::routes['home'], 'HomeController@showHome');
 
+// CRUD board_game
+Router::get(Routes::routes['manage_game'], 'ManageGameController@index');
+Router::get(Routes::routes['add_game'], 'ManageGameController@showAdd');
+Router::get(Routes::routes['update_game'], 'ManageGameController@showUpdate');
 
+Router::post(Routes::routes['remove_game'], 'ManageGameController@remove');
+Router::post(Routes::routes['add_game'], 'ManageGameController@onAdd');
+Router::post(Routes::routes['update_game'], 'ManageGameController@onUpdate');
 
-// Table controller usage
-//Router::get($routes['onRead'], 'TableController@index',['table'=>'users','selectAll' => null,"page"=>"pages.Test","excludes"=>['id',"fname"]]);
-//Router::get($routes['onReadAll'], 'TableController@getall',['tables'=>['users','roles'],"page"=>"pages.Test"]);
-//Router::post($routes['CreateMedewerker'], 'MedewerkerController@create');
-//Router::post($routes['onCreate'], 'TableController@create',['table'=>'users']);
-//Router::post($routes['onUpdate'], 'TableController@update',['table'=>'users','id'=>1]);
-//Router::post($routes['onDelete'], 'TableController@delete',['table'=>'users','key'=>'id','identifier'=>6]);
-// Router::get($routes['CreateMedewerker'], 'MedewerkerController@index');
-//'onReadAll'=>'/tables',
-//    'onRead'=>'/tables/test',
-//    'onCreate'=>'/tables/test/create',
-//    'onUpdate'=>'/tables/test/update',
-//    'onDelete'=>'/tables/test/delete',
-//    'CreateMedewerker'=>'/medewerker',
-
+// Register played game / show played games scored vs other players
+Router::get(Routes::routes['played_games'], 'PlayedGameController@showPlayedGame');
+Router::get(Routes::routes['register_played_game'], 'PlayedGameController@showRegisterPlayedGame');
+Router::post(Routes::routes['register_played_game'], 'PlayedGameController@onRegisterPlayedGame');
 
 /*
  *

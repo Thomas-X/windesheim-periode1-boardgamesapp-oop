@@ -133,7 +133,7 @@ class Database
     }
 
     /*
-     * a function for concatanating strings with or without ','. Optional inserting values instead of ? where values should be
+     * a method for concatanating strings with or without ','. Optional inserting values instead of ? where values should be
      * */
     private function concatValue(array $values, string $query, bool $appendString = null, bool $insertValues = false): array
     {
