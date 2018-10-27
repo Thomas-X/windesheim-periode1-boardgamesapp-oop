@@ -92,8 +92,4 @@ class Request
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
-    private function setBody()
-    {
-        $this->body = file_get_contents('php://input');
-    }
 }
