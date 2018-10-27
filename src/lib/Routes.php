@@ -37,5 +37,6 @@ class Routes
         foreach (Routes::$routes as $key => $route) {
             Routes::$routes[$key] = $domain . Routes::$routes[$key];
         }
+        dd(Routes::$routes);
     }
 }
