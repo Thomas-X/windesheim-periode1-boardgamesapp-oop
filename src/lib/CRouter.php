@@ -108,7 +108,7 @@ class CRouter
                 // header("HTTP/1.0 401 Unauthorized");
                 // exit;
                 // instead of 401 just redirect to home
-                header('Location: /');
+                    header('Location: ' . Routes::$routes['home']);
                 exit;
 
             }

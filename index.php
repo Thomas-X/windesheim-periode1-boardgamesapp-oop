@@ -57,6 +57,10 @@ function dd($val=null, $_=null) {
     $args = func_get_args();
     App::get('util')->dd(...$args);
 }
-
-App::run();
+try {
+    App::run();
+} catch (Exception $exception) {
+    var_dump($exception);
+    die;
+}
 
