@@ -45,7 +45,7 @@ class CRouter
                 $requestedMethod = $_SERVER['REQUEST_METHOD'];
                 $routeMethod = $route['httpRequestType'];
 
-                dd('HELLO WORLD');
+                dd('HELLO WORLD', get_defined_vars());
 
                 if ($routeMatches && $routeMethod == $requestedMethod) {
                     $this->runController($route['controller'], $route['data']);
