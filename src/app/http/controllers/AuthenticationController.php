@@ -18,28 +18,86 @@ use Qui\lib\Request;
 use Qui\lib\Response;
 use Qui\lib\Routes;
 
+/**
+ * Class AuthenticationController
+ * @package Qui\app\http\controllers
+ */
+
+/**
+ * Class AuthenticationController
+ * @package Qui\app\http\controllers
+ */
 class AuthenticationController
 {
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showRegister(Request $req, Response $res)
     {
         return View::render('pages.Register');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showLogin(Request $req, Response $res)
     {
         return View::render('pages.Login');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showForgotPassword(Request $req, Response $res)
     {
         return View::render('pages.ForgotPassword', [], 'Wachtwoord vergeten');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showResetPassword(Request $req, Response $res)
     {
         return View::render('pages.ResetPassword', [], 'Wachtwoord resetten');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed|void
+     */
     public function onResetPassword(Request $req, Response $res)
     {
         $forgotPasswordToken = $req->params['forgotPasswordToken'];
@@ -65,6 +123,15 @@ class AuthenticationController
         return $this->showResetPassword($req, $res);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed|void
+     */
     public function onForgotPassword(Request $req, Response $res)
     {
         $home = Routes::$routes['home'];
@@ -92,6 +159,14 @@ class AuthenticationController
         return $this->showForgotPassword($req, $res);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onRegister(Request $req, Response $res)
     {
         $success = Authentication::makeProfile($req->params);
@@ -100,11 +175,27 @@ class AuthenticationController
         $res->redirect(Routes::$routes['home'], 200);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onLogin(Request $req, Response $res)
     {
         Authentication::login($req, $res, $req->params['email'], $req->params['password'], array_key_exists('temp_account', $req->params) && $req->params['temp_account'] === 'on');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onLogout(Request $req, Response $res)
     {
         Authentication::logout($req, $res);

@@ -140,6 +140,7 @@ class CRouter
      * */
     /**
      * @param $controllerNameSpaced
+     * @param $data
      */
     private function runController($controllerNameSpaced, $data)
     {
@@ -166,6 +167,7 @@ class CRouter
     /**
      * @param $path
      * @param $controller
+     * @param array $data
      */
     public function get($path, $controller, $data = [])
     {
@@ -178,6 +180,8 @@ class CRouter
     }
 
     /**
+     * adds a POST route to the routes array, binding the path and controller to an assoc array
+     *
      * @param $path
      * @param $controller
      * @param array $data

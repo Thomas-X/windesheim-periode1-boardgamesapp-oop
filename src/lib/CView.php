@@ -13,6 +13,7 @@ use Qui\lib\facades\NotifierParser;
 
 /**
  * Class View
+ * Renders a view with a footer/nav and passed data to views when passed to submethods
  * @package Qui\core
  */
 class CView
@@ -22,11 +23,25 @@ class CView
     public const NAV = 'nav';
     public const FOOTER = 'footer';
 
+    /**
+     * @return mixed
+     */
+    /**
+     * @return mixed
+     */
     public function getNotifications()
     {
         return NotifierParser::make();
     }
 
+    /**
+     * @param $kind
+     * @param $path
+     */
+    /**
+     * @param $kind
+     * @param $path
+     */
     public function changeNavOrFooter($kind, $path) {
         switch ($kind) {
             case CView::NAV:
@@ -38,6 +53,21 @@ class CView
         }
     }
 
+    /**
+     * @param $component
+     * @param array $data
+     * @param null $title
+     * @param bool $directRender
+     * @return mixed
+     */
+    /**
+     * @param $component
+     * @param array $data
+     * @param null $title
+     * @param bool $directRender
+     * @return mixed
+     * if react is used, which is not the case right now. could be added easily later this way.
+     */
     public function react($component, $data = [], $title = null, $directRender = false)
     {
         $arr = array_merge_recursive($data, [
@@ -54,8 +84,10 @@ class CView
      * Renders a view using PHP 🤢🤢a🤢🤢🤢🤢🤢s the templating engine
      * */
     /**
-     * @param $viewNameWithoutExtension🤢🤢
+     * @param $viewNameWithoutExtension
      * @param array $data
+     * @param null $title
+     * @param bool $directRender
      * @return mixed
      */
     public function render($viewNameWithoutExtension, $data = [], $title = null, $directRender = false)

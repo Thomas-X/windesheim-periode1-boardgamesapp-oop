@@ -18,13 +18,42 @@ use Qui\lib\facades\View;
 use Qui\lib\Request;
 use Qui\lib\Response;
 
+/**
+ * Class TemporaryUserController
+ * @package Qui\app\http\controllers
+ */
+
+/**
+ * Class TemporaryUserController
+ * @package Qui\app\http\controllers
+ */
 class TemporaryUserController
 {
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showRegisterTemporaryUser(Request $req, Response $res)
     {
         return View::render('pages.temporary_user.index');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function onRegisterTemporaryUser(Request $req, Response $res)
     {
         $getParam = function ($key) use ($req) {
@@ -55,11 +84,31 @@ class TemporaryUserController
         return $this->showRegisterTemporaryUser($req, $res);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showSetPasswordTemporaryUser(Request $req, Response $res)
     {
         return View::render('pages.temporary_user.setPassword');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function onSetPasswordTemporaryUser(Request $req, Response $res)
     {
         $user = (DB::selectWhere('*', 'users', 'temporaryUserToken', $req->params['temporaryUserToken']))[0];

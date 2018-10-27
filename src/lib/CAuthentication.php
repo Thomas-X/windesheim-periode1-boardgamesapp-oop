@@ -11,6 +11,10 @@ namespace Qui\lib;
 
 use Qui\lib\facades\DB;
 
+/**
+ * this contains several methods for authentication and user registration.
+ * @package Qui\lib
+ */
 class CAuthentication
 {
     // increase this when hardware can handle more salting rounds
@@ -19,6 +23,15 @@ class CAuthentication
         'cost' => CAuthentication::SALTING_ROUNDS
     ];
 
+    /**
+     * logs the user in
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @param string $email
+     * @param string $password
+     * @param $isTemporary
+     */
     public function login(Request $req, Response $res, string $email, string $password, $isTemporary)
     {
         $user = ['isValid' => false];
@@ -47,6 +60,15 @@ class CAuthentication
         }
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * logs the user our
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function logout(Request $req, Response $res)
     {
         $token = $req->cookies['token'] ?? false;
@@ -66,6 +88,13 @@ class CAuthentication
     /*
      * generate random string based on the UNIX epoch timestamp and md5 hashing it
      * */
+    /**
+     * @return bool|string
+     */
+    /**
+     * @return bool|string
+     * generates a random string
+     */
     public function generateRandomString()
     {
         return substr(str_shuffle(MD5(microtime())), 0, 99);
@@ -74,6 +103,13 @@ class CAuthentication
     /*
      * not uniquely random (not researched at least) but since the chances of that are so abysmal its fine by me
      * */
+    /**
+     * @return bool|string
+     */
+    /**
+     * @return bool|string
+     * generates a random hash
+     */
     public function generateRandomHash()
     {
         // generate random string
@@ -81,6 +117,15 @@ class CAuthentication
         return $this->generateHash((string) $str);
     }
 
+    /**
+     * @param $nickname
+     * @return mixed
+     */
+    /**
+     * @param $nickname
+     * @return mixed
+     * makes a profile entry used for keeping track of played games
+     */
     public function makeProfile($nickname)
     {
         DB::insertEntry('profiles', [
@@ -93,6 +138,18 @@ class CAuthentication
     }
     
     // TODO remove / refactor this (superadmin should only be able to do this)
+
+    /**
+     * registers a user
+     * @param $params
+     * @return bool
+     * @throws \Exception
+     */
+    /**
+     * @param $params
+     * @return bool
+     * @throws \Exception
+     */
     public function register($params)
     {
         // TODO check / validate parameters with Validator
@@ -117,6 +174,15 @@ class CAuthentication
         }
     }
 
+    /**
+     * @param bool $returnUser
+     * @return bool
+     */
+    /**
+     * @param bool $returnUser
+     * @return bool
+     * verifies if a user is logged in
+     */
     public function verify($returnUser = false)
     {
         $token = $_COOKIE['token'] ?? false;
@@ -138,17 +204,48 @@ class CAuthentication
         }
     }
 
+    /**
+     * @param string $string
+     * @return bool|string
+     */
+    /**
+     * @param string $string
+     * @return bool|string
+     * generates a hash from a string
+     */
     public function generateHash(string $string)
     {
         // password_default = bcrypt but can change in newer versions, in case it does hashes are re-generated
         return password_hash($string, PASSWORD_DEFAULT, CAuthentication::HASHING_OPTIONS);
     }
 
+    /**
+     * @param string $hash
+     * @param string $password
+     * @return bool
+     */
+    /**
+     * @param string $hash
+     * @param string $password
+     * @return bool
+     * verifies a hash and a plaintext string if they match
+     */
     private function verifyHash(string $hash, string $password)
     {
         return password_verify($password, $hash);
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @return array
+     */
+    /**
+     * @param string $email
+     * @param string $password
+     * @return array
+     * verifies credentials, email and password
+     */
     private function verifyCredentials(string $email, string $password)
     {
         $users = DB::selectAll('users');

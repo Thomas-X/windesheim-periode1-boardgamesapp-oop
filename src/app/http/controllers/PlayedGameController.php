@@ -16,8 +16,17 @@ use Qui\lib\Request;
 use Qui\lib\Response;
 use Qui\lib\Routes;
 
+/**
+ * Class PlayedGameController
+ * @package Qui\app\http\controllers
+ */
 class PlayedGameController
 {
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showPlayedGame(Request $req, Response $res)
     {
         $playedGames = DB::selectAll('playedgames');
@@ -25,6 +34,16 @@ class PlayedGameController
         return View::render('pages.played_game.index', compact('playedGames', 'games'));
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showRegisterPlayedGame(Request $req, Response $res)
     {
         $games = DB::selectAll('games');
@@ -32,6 +51,14 @@ class PlayedGameController
         return View::render('pages.played_game.add', compact('games', 'profiles'));
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onRegisterPlayedGame(Request $req, Response $res)
     {
         DB::insertEntry('playedgames', [

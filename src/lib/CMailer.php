@@ -17,6 +17,16 @@ namespace Qui\lib;
 use phpDocumentor\Parser\Exception;
 use Qui\lib\facades\Util;
 
+/**
+ * Class CMailer
+ * @package Qui\lib
+ */
+
+/**
+ * a mailer class. uses an awesome way to send emails
+ * Class CMailer
+ * @package Qui\lib
+ */
 class CMailer
 {
     public const MAIL_DEFAULT = [
@@ -26,30 +36,69 @@ class CMailer
     ];
     private $mail = CMailer::MAIL_DEFAULT;
 
+    /**
+     * @return $this
+     */
+    /**
+     * @return $this
+     */
     public function setupMail()
     {
         $this->mail = CMailer::MAIL_DEFAULT;
         return $this;
     }
 
+    /**
+     * @param $to
+     * @return $this
+     */
+    /**
+     * @param $to
+     * @return $this
+     */
     public function to($to)
     {
         $this->mail['to'] = $to;
         return $this;
     }
 
+    /**
+     * @param $subject
+     * @return $this
+     */
+    /**
+     * @param $subject
+     * @return $this
+     */
     public function subject($subject)
     {
         $this->mail['subject'] = $subject;
         return $this;
     }
 
+    /**
+     * @param $body
+     * @return $this
+     */
+    /**
+     * @param $body
+     * @return $this
+     */
     public function body($body)
     {
         $this->mail['body'] = $body;
         return $this;
     }
 
+    /**
+     * @return bool
+     * @throws Exception
+     */
+    /**
+     * @return bool
+     * @throws Exception
+     * sends a cURL request to a raspberry pi running a node web server listening for POST requests that then in turn runs a python script to send an email
+     */
     public function send()
     {
         if (!$this->mail['to'] || !$this->mail['body'] || !$this->mail['subject']) {

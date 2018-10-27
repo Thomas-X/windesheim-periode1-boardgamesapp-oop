@@ -110,6 +110,12 @@ class App
     /*
      *  require the web.php so the routes get added
      * */
+    /**
+     * @param $relativeRoutesPath
+     */
+    /**
+     * @param $relativeRoutesPath
+     */
     public static function setupRoutes($relativeRoutesPath)
     {
         require $relativeRoutesPath;
@@ -123,11 +129,25 @@ class App
         static::$registry['router']->serve();
     }
 
+    /**
+     * @return bool
+     */
+    /**
+     * @return bool
+     */
     public static function isDevelopmentEnviroment()
     {
         return static::_checkEnv("development");
     }
 
+    /**
+     * @param $_env
+     * @return bool
+     */
+    /**
+     * @param $_env
+     * @return bool
+     */
     private static function _checkEnv($_env)
     {
         $env = $_ENV['ENVIROMENT'];
@@ -140,6 +160,12 @@ class App
         return false;
     }
 
+    /**
+     * @return bool
+     */
+    /**
+     * @return bool
+     */
     public static function isProductionEnviroment()
     {
         return static::_checkEnv("production");

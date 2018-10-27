@@ -14,19 +14,46 @@ use Qui\lib\Request;
 use Qui\lib\Response;
 use Qui\lib\Routes;
 
+/**
+ * Class ManageGameController
+ * @package Qui\app\http\controllers
+ */
 class ManageGameController
 {
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function index(Request $req, Response $res)
     {
         $items = DB::selectAll('games');
         return View::render('pages.manage_games.index', compact('items'));
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showAdd(Request $req, Response $res)
     {
         return View::render('pages.manage_games.add');
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onAdd(Request $req, Response $res)
     {
         DB::insertEntry('games', [
@@ -36,12 +63,30 @@ class ManageGameController
         return $res->redirect(Routes::$routes['manage_game']);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showUpdate(Request $req, Response $res)
     {
         $item = DB::selectWhere('*', 'games', 'id', $req->params['id'])[0];
         return View::render('pages.manage_games.update', compact('item'));
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function onUpdate(Request $req, Response $res)
     {
         $name = $req->params['name'];
@@ -57,6 +102,14 @@ class ManageGameController
         $res->redirect(Routes::$routes['manage_game']);
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     */
     public function remove(Request $req, Response $res)
     {
         $id = $req->params['id'];

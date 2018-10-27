@@ -24,7 +24,6 @@ namespace Qui\lib;
  * the specific methods don't need much explaining, the naming should speak for how the method works, e.g isEmail()
  * */
 
-use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Class Validator
@@ -137,11 +136,31 @@ class CValidator
         return $this->typeValidator($float, CValidator::FLOAT, $this->message($field));
     }
 
+    /**
+     * @param $bool
+     * @param string $field
+     * @return CValidator
+     */
+    /**
+     * @param $bool
+     * @param string $field
+     * @return CValidator
+     */
     public function isBool($bool, $field = 'isBool')
     {
         return $this->typeValidator($bool, CValidator::BOOLEAN, $this->message($field));
     }
 
+    /**
+     * @param $array
+     * @param string $field
+     * @return CValidator
+     */
+    /**
+     * @param $array
+     * @param string $field
+     * @return CValidator
+     */
     public function isArray($array, $field = 'isArray')
     {
         return $this->typeValidator($array, CValidator::ARRAY, $this->message($field));
@@ -157,6 +176,16 @@ class CValidator
         return $this->typeValidator($value, CValidator::NULL, $this->message($field), true);
     }
 
+    /**
+     * @param $value
+     * @param string $field
+     * @return CValidator
+     */
+    /**
+     * @param $value
+     * @param string $field
+     * @return CValidator
+     */
     public function isNull($value, $field = 'isNull')
     {
         return $this->typeValidator($value, CValidator::NULL, $this->message($field));
@@ -258,6 +287,31 @@ class CValidator
      *
      * if (count($errors) >= 1) /* do some error handling stuff here?
     */
+    /**
+     * @param $values
+     * @param $requirements
+     * @return array
+     */
+    /**
+     * @param $values
+     * @param $requirements
+     * @return array
+     */
+    /**
+     * @param $values
+     * @param $requirements
+     * @return array
+     */
+    /**
+     * @param $values
+     * @param $requirements
+     * @return array
+     */
+    /**
+     * @param $values
+     * @param $requirements
+     * @return array
+     */
     public function validateRequest($values, $requirements)
     {
         $errors = [];

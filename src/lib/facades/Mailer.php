@@ -9,7 +9,13 @@
 namespace Qui\lib\facades;
 
 use Qui\lib\facades\Facade;
-
+/*
+ * A facade, for an item in the DI container
+ * */
+/**
+ * Class Mailer
+ * @package Qui\lib\facades
+ */
 class Mailer extends Facade
 {
     /**

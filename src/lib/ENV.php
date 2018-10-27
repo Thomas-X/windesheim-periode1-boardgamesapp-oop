@@ -12,6 +12,11 @@ namespace Qui\lib;
  * This class is used to load the .env files that store various confidential data like database passwords
  * .env is ignored in .gitignore
  * */
+
+/**
+ * Class ENV
+ * @package Qui\lib
+ */
 class ENV
 {
     public static function setup()
@@ -19,6 +24,9 @@ class ENV
         static::load();
     }
 
+    /*
+     * extracts data from .env and puts it in a superglobal
+     * */
     public static function load()
     {
         $str = file_get_contents(__DIR__ . '/../../.env');

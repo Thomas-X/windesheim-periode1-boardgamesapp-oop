@@ -9,6 +9,10 @@
 namespace Qui\lib;
 
 
+/**
+ * class with routes used by the project.
+ * @package Qui\lib
+ */
 class Routes
 {
     static public $routes = [
@@ -32,6 +36,12 @@ class Routes
         'scoreboard_game' => '/scoreboard/game'
     ];
 
+    /**
+     * @param $path
+     */
+    /**
+     * @param $path
+     */
     public static function morphRoutes($path)
     {
         foreach (Routes::$routes as $key => $route) {

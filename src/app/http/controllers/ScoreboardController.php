@@ -14,14 +14,33 @@ use Qui\lib\facades\View;
 use Qui\lib\Request;
 use Qui\lib\Response;
 
+/**
+ * Class ScoreboardController
+ * @package Qui\app\http\controllers
+ */
 class ScoreboardController
 {
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showScoreboard(Request $req, Response $res)
     {
         $games = DB::selectAll('games');
         return View::render('pages.scoreboard', compact('games'));
     }
 
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
+    /**
+     * @param Request $req
+     * @param Response $res
+     * @return mixed
+     */
     public function showScoreboardForGame(Request $req, Response $res)
     {
         $gameId = $req->params['game'];

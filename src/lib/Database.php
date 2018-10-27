@@ -6,14 +6,13 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 /*
  * A wrapper around the PDO class, pulls DB data from .env for a connection.
- * Also exposes an eloquent query builder instance, which is the adapter the DB facade uses
+ * Also exposes an eloquent query builder instance, which is the adapter the DB facade uses (if enabled)
  * */
 
 /**
  * Class Database
  * @package Qui\core
  */
-// TODO add CRUD query methods
 class Database
 {
     public $pdo;
@@ -119,6 +118,14 @@ class Database
     /*
      * Insert an entry in the database, could be any table you want.
      * */
+    /**
+     * @param string $table
+     * @param array $values
+     */
+    /**
+     * @param string $table
+     * @param array $values
+     */
     public function insertEntry(string $table, array $values)
     {
         $columns = ($this->concatValue(array_keys($values), "", "", true))['query'];
@@ -135,6 +142,20 @@ class Database
     /*
      * a method for concatanating strings with or without ','. Optional inserting values instead of ? where values should be
      * */
+    /**
+     * @param array $values
+     * @param string $query
+     * @param bool|null $appendString
+     * @param bool $insertValues
+     * @return array
+     */
+    /**
+     * @param array $values
+     * @param string $query
+     * @param bool|null $appendString
+     * @param bool $insertValues
+     * @return array
+     */
     private function concatValue(array $values, string $query, bool $appendString = null, bool $insertValues = false): array
     {
         $idx = 0;
@@ -165,6 +186,18 @@ class Database
 
     // DONE avoid SQL injection (because right now the values are put straight into the query)
     // TODO replace query concatanation here with $this->concatValue()
+    /**
+     * @param int $id
+     * @param string $table
+     * @param array $values
+     * @return array|bool
+     */
+    /**
+     * @param int $id
+     * @param string $table
+     * @param array $values
+     * @return array|bool
+     */
     public function updateEntry(int $id, string $table, array $values)
     {
         $query = "UPDATE {$table} SET ";
@@ -184,21 +217,131 @@ class Database
         return $this->execute($query, $rowValues);
     }
 
+    /**
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
     public function deleteEntry(string $table, string $key, string $identifier)
     {
         return $this->execute("DELETE FROM {$table} WHERE {$key}=?", [$identifier]);
     }
 
+    /**
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $table
+     * @return array|bool
+     */
     public function selectAll(string $table)
     {
         return $this->execute("SELECT * FROM {$table}");
     }
 
+    /**
+     * @param string $fields
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @return array|bool
+     */
     public function select(string $fields, string $table)
     {
         return $this->execute("SELECT {$fields} FROM {$table}");
     }
 
+    /**
+     * @param string $fields
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
+    /**
+     * @param string $fields
+     * @param string $table
+     * @param string $key
+     * @param string $identifier
+     * @return array|bool
+     */
     public function selectWhere(string $fields, string $table, string $key, string $identifier)
     {
         return $this->execute("SELECT {$fields} FROM {$table} WHERE {$key}=?", [$identifier]);

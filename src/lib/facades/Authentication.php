@@ -8,9 +8,18 @@
 
 namespace Qui\lib\facades;
 
-
+/*
+ * A facade, for an item in the DI container
+ * */
+/**
+ * Class Authentication
+ * @package Qui\lib\facades
+ */
 class Authentication extends Facade
 {
+    /**
+     * @return string
+     */
     public static function getFacadeAccessor()
     {
         return 'authentication';

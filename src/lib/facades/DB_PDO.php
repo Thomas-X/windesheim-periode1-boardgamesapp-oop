@@ -7,7 +7,9 @@
  */
 
 namespace Qui\lib\facades;
-
+/*
+ * A facade, for an item in the DI container
+ * */
 /**
  * Class DB_PDO
  * @package Qui\core\facades

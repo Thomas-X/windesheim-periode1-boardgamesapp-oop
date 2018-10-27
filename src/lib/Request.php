@@ -54,6 +54,12 @@ class Request
         $this->server = $_SERVER;
     }
 
+    /**
+     * @return array
+     */
+    /**
+     * @return array
+     */
     private static function getallheaders()
     {
         $headers = [];

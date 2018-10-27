@@ -9,8 +9,17 @@
 namespace Qui\lib;
 
 
+/**
+ * a form template class
+ * @package Qui\lib
+ */
 class Form
 {
+    /**
+     * @param $title
+     * @param $iconName
+     * @param $inputElement
+     */
     public static function input($title, $iconName, $inputElement)
     {
         echo "<div class=\"form-group\">

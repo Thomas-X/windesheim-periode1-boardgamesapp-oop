@@ -15,6 +15,7 @@ class HomeController
     /**
      * @param Request $req
      * @param Response $res
+     * @param $data
      * @return mixed
      */
     public function showHome(Request $req, Response $res, $data)
