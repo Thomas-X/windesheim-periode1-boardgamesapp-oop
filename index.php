@@ -26,6 +26,11 @@ use Qui\lib\CNotifierParser;
 
 \Qui\lib\Routes::morphRoutes("/~s1130146/P1_OOAPP_Opdracht");
 
+set_error_handler(function($errno, $errstr, $errfile, $errline ){
+    var_dump(new ErrorException($errstr, $errno, 0, $errfile, $errline));
+    die;
+});
+
 $_ENV = [];
 // setup ENV variables before setting up database classes etc
 App::setupENV();
