@@ -50,7 +50,7 @@ App::setupDependencies([
     'mailer'                    => $mailer,
     'notifierparser'            => $notifierParser,
 ]);
-App::setupRoutes(__DIR__ . '/../routes/web.php');
+App::setupRoutes(__DIR__ . '/routes/web.php');
 
 // setup global functions. I got tired of importing Util:: every time so this is a simple wrapper around Util::dd
 function dd($val=null, $_=null) {
