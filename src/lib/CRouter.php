@@ -38,21 +38,27 @@ class CRouter
      * */
     public function serve(): void
     {
-        $routeMatches = false;
-        foreach ($this->routes as $route) {
-            $routeMatches = $this->determineIfRouteMatches($route);
-            $requestedMethod = $_SERVER['REQUEST_METHOD'];
-            $routeMethod = $route['httpRequestType'];
+        try {
+            $routeMatches = false;
+            foreach ($this->routes as $route) {
+                $routeMatches = $this->determineIfRouteMatches($route);
+                $requestedMethod = $_SERVER['REQUEST_METHOD'];
+                $routeMethod = $route['httpRequestType'];
 
-            if ($routeMatches && $routeMethod == $requestedMethod) {
-                $this->runController($route['controller'], $route['data']);
-                break;
+                if ($routeMatches && $routeMethod == $requestedMethod) {
+                    $this->runController($route['controller'], $route['data']);
+                    break;
+                }
             }
+            // If we're here, we've 404'ed because otherwise we would've returned.
+            if (!$routeMatches) {
+                $this->return404();
+            }
+        } catch (\Exception $exception) {
+            var_dump($exception);
+            die;
         }
-        // If we're here, we've 404'ed because otherwise we would've returned.
-        if (!$routeMatches) {
-            $this->return404();
-        }
+
     }
 
     /*
