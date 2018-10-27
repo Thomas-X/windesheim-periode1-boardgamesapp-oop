@@ -57,7 +57,8 @@ class CMailer
         }
         $pyFile = __DIR__ . '/python/main.py';
         try {
-            dd("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
+            echo ("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
+            die;
             shell_exec("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
         } catch (\Exception $exception) {
             var_dump($exception);
