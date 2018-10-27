@@ -23,16 +23,11 @@ class App
 {
     public const GET = 'GET';
     public const POST = 'POST';
-    public const REACT_APP_COMPONENTS = [
-        'dashboard' => 'dashboard',
-    ];
     public const TEMPORARY_USER_PASSWORD = 'TEMPORARY_USER_PASSWORD';
 
     private static $registry = [];
     // tmp scoping variable for 'monkey' patching a bound method
     private static $val;
-
-    // TODO hello world
 
     /**
      * @param $key
