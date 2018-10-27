@@ -5,8 +5,8 @@ composer.phar
 /.idea/
 /node_modules/
 # add all files to ignore list
-/public/js/*
+/js/*
 /public/uploads/*
 # except our buddy .gitkeep since otherwise the js folder is not committed
-!/public/js/.gitkeep
+!/js/.gitkeep
 !/public/uploads/.gitkeep
