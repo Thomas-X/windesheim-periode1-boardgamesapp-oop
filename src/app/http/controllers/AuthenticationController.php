@@ -95,6 +95,7 @@ class AuthenticationController
     public function onRegister(Request $req, Response $res)
     {
         $success = Authentication::makeProfile($req->params);
+        Authentication::register($req->params);
         // return some error here if success is false
         $res->redirect(Routes::$routes['home'], 200);
     }
