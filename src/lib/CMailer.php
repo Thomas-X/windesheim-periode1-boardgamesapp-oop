@@ -55,15 +55,24 @@ class CMailer
         if (!$this->mail['to'] || !$this->mail['body'] || !$this->mail['subject']) {
             throw new Exception('Invalid email to be sent, missing data');
         }
-        $pyFile = __DIR__ . '/python/main.py';
-        try {
-            echo ("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
-            die;
-            shell_exec("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
-        } catch (\Exception $exception) {
-            var_dump($exception);
-            die;
-        }
+//        $pyFile = __DIR__ . '/python/main.py';
+//        try {
+//            echo ("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
+//            die;
+//            shell_exec("{$_ENV['PYTHON3_NAME']} {$pyFile} \"{$this->mail['to']}\" \"{$this->mail['subject']}\" \"{$this->mail['body']}\" \"{$_ENV['GMAIL_EMAIL']}\" \"{$_ENV['GMAIL_PASSWORD']}\"");
+//        } catch (\Exception $exception) {
+//            var_dump($exception);
+//            die;
+//        }
+        shell_exec("curl -X POST \
+  http://185.47.135.138:3000/email \
+  -H 'content-type: application/json' \
+  -d '{
+	\"superSecretKey\": \"{$_ENV['SUPER_SECRET_EMAIL_KEY']}\",
+	\"to\": \"{$this->mail['to']}\",
+	\"body\": \"{$this->mail['body']}\",
+	\"title\": \"{$this->mail['subject']}\"
+}'");
         return true;
     }
 }
