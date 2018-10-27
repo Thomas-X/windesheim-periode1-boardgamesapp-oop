@@ -48,8 +48,6 @@ class CRouter
 
                 if ($routeMatches && $routeMethod == $requestedMethod) {
                     $this->runController($route['controller'], $route['data']);
-                    dd('HELLO WORLD', get_defined_vars());
-
                     break;
                 }
             }
@@ -156,6 +154,7 @@ class CRouter
 
         $controllerNameSpaced = "Qui" . '\\' . 'app' . '\\' . 'http' . '\\' . 'controllers' . '\\' . $controllerName;
         $controllerInstance = new $controllerNameSpaced;
+        dd('HELLO WORLD', get_defined_vars());
         $req = new Request();
         $res = new Response();
         // dont echo because we're using requires and not a templating engine
