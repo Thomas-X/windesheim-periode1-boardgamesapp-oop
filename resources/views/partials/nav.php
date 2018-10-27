@@ -7,7 +7,7 @@
             <div class="col-sm-10">
 
                 <div class="flexContainer">
-                    <a class="navLink nav-link" href="/">Home</a>
+                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::$routes['home'] ?>">Home</a>
                     <a class="navLink nav-link" href="<?= \Qui\lib\Routes::$routes['manage_game'] ?>">Manage games</a>
                     <a class="navLink nav-link" href="<?= \Qui\lib\Routes::$routes['played_games'] ?>">Played games</a>
                     <a class="navLink nav-link" href='<?= \Qui\lib\Routes::$routes['scoreboard'] ?>'>Scoreboard</a>
