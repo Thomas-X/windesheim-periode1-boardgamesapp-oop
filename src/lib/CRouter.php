@@ -38,6 +38,7 @@ class CRouter
      * */
     public function serve(): void
     {
+        dd('HELLO WORLD');
         try {
             $routeMatches = false;
             foreach ($this->routes as $route) {
