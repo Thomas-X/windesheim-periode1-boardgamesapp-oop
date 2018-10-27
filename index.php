@@ -1,7 +1,7 @@
 <?php
 
 // Used for (composer) autoloading
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/bootstrap.php';
 
 /*
  *  • DONE Authenticatie van gebruikers – registratie, inloggen en wachtwoord vergeten.
