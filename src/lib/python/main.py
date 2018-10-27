@@ -28,7 +28,7 @@ class Main:
         text = msg.as_string()
         # start stmp server and send mail afterwards shutting down the stmp server (yes this is inefficient with
         # large batches of email i am aware)
-        server = smtplib.SMTP('smtp.gmail.com', 587, None, 30)
+        server = smtplib.SMTP('smtp.gmail.com', 587, timeout=30)
         print('hello world')
         server.starttls()
         server.login(fromAddr, pwd)
