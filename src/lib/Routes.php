@@ -37,7 +37,5 @@ class Routes
         foreach (Routes::$routes as $key => $route) {
             Routes::$routes[$key] = $path . Routes::$routes[$key];
         }
-        var_dump(Routes::$routes);
-        die;
     }
 }
