@@ -6,7 +6,7 @@
         </p>
     </div>
     <h3>
-        <a href="<?= \Qui\lib\Routes::routes['register_played_game'] ?>" class="btn btn-success"><i class="fas fa-plus"></i>
+        <a href="<?= \Qui\lib\Routes::$routes['register_played_game'] ?>" class="btn btn-success"><i class="fas fa-plus"></i>
             &thinsp;Register played game
         </a>
     </h3>

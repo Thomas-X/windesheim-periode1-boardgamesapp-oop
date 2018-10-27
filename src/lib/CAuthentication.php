@@ -41,9 +41,9 @@ class CAuthentication
                 setcookie('token', $user['rememberMeToken'], time() + 60 * 60 * 24 * 7, '/', "", true);
             }
 
-            $res->redirect(Routes::routes['home'], 200);
+            $res->redirect(Routes::$routes['home'], 200);
         } else {
-            $res->redirect(Routes::routes['home'], 401);
+            $res->redirect(Routes::$routes['home'], 401);
         }
     }
 

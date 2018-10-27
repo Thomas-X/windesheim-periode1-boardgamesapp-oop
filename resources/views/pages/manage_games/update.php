@@ -3,7 +3,7 @@
         <h1 class="display-4">Update game</h1>
     </div>
 
-    <form action="<?= \Qui\lib\Routes::routes['update_game'] . '?id=' . $_GET['id'] ?>" method="post">
+    <form action="<?= \Qui\lib\Routes::$routes['update_game'] . '?id=' . $_GET['id'] ?>" method="post">
         <?php
         $name = $item['name'];
         $description = $item['description'];

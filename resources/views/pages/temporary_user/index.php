@@ -5,7 +5,7 @@
             je krijgt een mail toegestuurd om je wachtwoord in te stellen. zorg dat je dit zo snel mogelijk doet en hier niet mee wacht want anders kan iedereen die jouw email heeft inloggen.
         </p>
     </div>
-    <form method="post" action="<?= \Qui\lib\Routes::routes['on_register_temporary_user'] ?>">
+    <form method="post" action="<?= \Qui\lib\Routes::$routes['on_register_temporary_user'] ?>">
         <?php
         \Qui\lib\Form::input('Voornaam', 'fa-user',
             "<input type=\"text\" class=\"form-control ownInput\" id=\"fname\" placeholder=\"Enter your firstname\" name=\"fname\" required>");

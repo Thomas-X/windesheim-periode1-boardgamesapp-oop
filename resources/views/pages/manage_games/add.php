@@ -2,7 +2,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Add game</h1>
     </div>
-    <form action="<?= \Qui\lib\Routes::routes['add_game'] ?>" method="post">
+    <form action="<?= \Qui\lib\Routes::$routes['add_game'] ?>" method="post">
         <?php require(__DIR__ . '/fields.php') ?>
         <br/>
         <button type="submit" class="btn btn-success">

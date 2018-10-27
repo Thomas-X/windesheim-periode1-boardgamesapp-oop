@@ -56,6 +56,6 @@ class PlayedGameController
         $addLoseOrWin($req, 'playerlose', 'losses');
         $addLoseOrWin($req, 'playerwon', 'wins');
 
-        return $res->redirect(Routes::routes['played_games']);
+        return $res->redirect(Routes::$routes['played_games']);
     }
 }

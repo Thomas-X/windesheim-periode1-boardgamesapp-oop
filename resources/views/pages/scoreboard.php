@@ -9,7 +9,7 @@
     <ul class="list-group">
         <?php foreach($games as $game): ?>
         <li class="list-group-item">
-            <a href='<?= \Qui\lib\Routes::routes['scoreboard_game'] . '?game=' . $game['id'] ?> '><?= $game['name'] ?></a>
+            <a href='<?= \Qui\lib\Routes::$routes['scoreboard_game'] . '?game=' . $game['id'] ?> '><?= $game['name'] ?></a>
         </li>
         <?php endforeach; ?>
     </ul>

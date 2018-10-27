@@ -8,16 +8,16 @@
 
                 <div class="flexContainer">
                     <a class="navLink nav-link" href="/">Home</a>
-                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::routes['manage_game'] ?>">Manage games</a>
-                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::routes['played_games'] ?>">Played games</a>
-                    <a class="navLink nav-link" href='<?= \Qui\lib\Routes::routes['scoreboard'] ?>'>Scoreboard</a>
+                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::$routes['manage_game'] ?>">Manage games</a>
+                    <a class="navLink nav-link" href="<?= \Qui\lib\Routes::$routes['played_games'] ?>">Played games</a>
+                    <a class="navLink nav-link" href='<?= \Qui\lib\Routes::$routes['scoreboard'] ?>'>Scoreboard</a>
                     <?php
                     $loggedIn = \Qui\lib\facades\Authentication::verify();
                     $user = \Qui\lib\facades\Authentication::verify(true);
-                    $registerTmp = \Qui\lib\Routes::routes['register_temporary_user'];
-                    $lgn = \Qui\lib\Routes::routes['login'];
-                    $reg = \Qui\lib\Routes::routes['register'];
-                    $logout = \Qui\lib\Routes::routes['logout'];
+                    $registerTmp = \Qui\lib\Routes::$routes['register_temporary_user'];
+                    $lgn = \Qui\lib\Routes::$routes['login'];
+                    $reg = \Qui\lib\Routes::$routes['register'];
+                    $logout = \Qui\lib\Routes::$routes['logout'];
                     // if NOT logged in
                     if (!$loggedIn) {
                         echo "<a class=\"navLink nav-link\" href='{$lgn}'>Login</a>";

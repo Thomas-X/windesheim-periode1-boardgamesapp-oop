@@ -11,7 +11,7 @@ namespace Qui\lib;
 
 class Routes
 {
-    public const routes = [
+    static public $routes = [
         'home' => '/',
         'login' => '/login',
         'logout' => '/logout',
@@ -31,4 +31,11 @@ class Routes
         'scoreboard' => '/scoreboard',
         'scoreboard_game' => '/scoreboard/game'
     ];
+
+    public static function morphRoutes($domain)
+    {
+        foreach (Routes::$routes as $key => $route) {
+            Routes::$routes[$key] = $domain . Routes::$routes[$key];
+        }
+    }
 }

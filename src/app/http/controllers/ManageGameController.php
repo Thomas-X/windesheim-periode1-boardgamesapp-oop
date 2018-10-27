@@ -33,7 +33,7 @@ class ManageGameController
             'name' => $req->params['name'],
             'description' => $req->params['description'],
         ]);
-        return $res->redirect(Routes::routes['manage_game']);
+        return $res->redirect(Routes::$routes['manage_game']);
     }
 
     public function showUpdate(Request $req, Response $res)
@@ -54,7 +54,7 @@ class ManageGameController
             $arr['description'] = $description;
         }
         DB::updateEntry($req->params['id'], 'games', $arr);
-        $res->redirect(Routes::routes['manage_game']);
+        $res->redirect(Routes::$routes['manage_game']);
     }
 
     public function remove(Request $req, Response $res)
@@ -65,6 +65,6 @@ class ManageGameController
             DB::deleteEntry('playedgames', 'id', $playedgame['id']);
         }
         DB::deleteEntry('games', 'id', $id);
-        return $res->redirect(Routes::routes['manage_game']);
+        return $res->redirect(Routes::$routes['manage_game']);
     }
 }

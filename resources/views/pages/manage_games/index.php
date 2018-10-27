@@ -3,7 +3,7 @@
         <h1 class="display-4">Manage / add games</h1>
     </div>
     <h3>
-        <a href="<?= \Qui\lib\Routes::routes['add_game'] ?>" class="btn btn-success"><i class="fas fa-plus"></i>
+        <a href="<?= \Qui\lib\Routes::$routes['add_game'] ?>" class="btn btn-success"><i class="fas fa-plus"></i>
             &thinsp;Add new game
         </a>
     </h3>
@@ -16,12 +16,12 @@
                     <?= $item['name'] ?>
                 </div>
                 <div class="col-sm-4 buttongrid">
-                    <a href="<?= \Qui\lib\Routes::routes['update_game'] . '?id=' . $item['id'] ?>"
+                    <a href="<?= \Qui\lib\Routes::$routes['update_game'] . '?id=' . $item['id'] ?>"
                        class="btn btn-success flex1" role="button">
                         <i class="fas fa-sync margin-2"></i>
                         &thinsp;Update
                     </a>
-                    <form action="<?= \Qui\lib\Routes::routes['remove_game'] . '?id=' . $item['id'] ?>" method="post">
+                    <form action="<?= \Qui\lib\Routes::$routes['remove_game'] . '?id=' . $item['id'] ?>" method="post">
                         <button type="submit"
                                 class="btn btn-danger" role="button"
                                 style="width: 100%;">

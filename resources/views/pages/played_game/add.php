@@ -2,7 +2,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Register played game</h1>
     </div>
-    <form action="<?= \Qui\lib\Routes::routes['register_played_game'] ?>" method="post" id="played_game_form">
+    <form action="<?= \Qui\lib\Routes::$routes['register_played_game'] ?>" method="post" id="played_game_form">
         <div>
             <label>Game</label>
             <select class="form-control" name="game_id" form="played_game_form">
