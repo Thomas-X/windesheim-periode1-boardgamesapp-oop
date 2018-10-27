@@ -33,8 +33,8 @@ class Request
         $this->setParams();
         $this->setCookies();
         $this->setServer();
-        dd('HELLO WORLD', get_defined_vars());
         $this->setHeaders();
+        dd('HELLO WORLD', get_defined_vars());
         $this->setFiles();
         $this->setSecure();
         $this->setMethod();
