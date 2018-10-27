@@ -75,6 +75,8 @@ Router::middleware(['AuthenticationMiddleware@shouldBeLoggedIn'], [
     ]
 ]);
 
+dd('hello world', get_defined_vars());
+
 /*
  * Should not be logged in middleware
  * */
