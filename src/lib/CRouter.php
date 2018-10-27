@@ -90,7 +90,6 @@ class CRouter
             $req = new Request();
             $res = new Response();
             $pass = $middlewareInstance->$middlewareMethod($req, $res);
-            dd('hello');
             if ($pass) {
                 // for every route given in array add it to the routes array (to serve up, since the middleware passed)
                 foreach ($routes as $route) {
@@ -104,6 +103,7 @@ class CRouter
                             break;
                     }
                 }
+                dd('hello');
                 // I know it's verbose to say continue here, but I find it more readable
                 continue;
             } else if (!$pass) {
