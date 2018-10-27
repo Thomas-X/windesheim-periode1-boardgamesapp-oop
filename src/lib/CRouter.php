@@ -103,7 +103,7 @@ class CRouter
                             break;
                     }
                 }
-                dd('hello');
+                dd('hello', get_defined_vars());
                 // I know it's verbose to say continue here, but I find it more readable
                 continue;
             } else if (!$pass) {
