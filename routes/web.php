@@ -28,6 +28,20 @@ Router::get(Routes::routes['played_games'], 'PlayedGameController@showPlayedGame
 Router::get(Routes::routes['register_played_game'], 'PlayedGameController@showRegisterPlayedGame');
 Router::post(Routes::routes['register_played_game'], 'PlayedGameController@onRegisterPlayedGame');
 
+// register temporary user
+// TODO detect on login if user has no password set
+Router::get(Routes::routes['register_temporary_user'], 'TemporaryUserController@showRegisterTemporaryUser');
+
+Router::post(Routes::routes['on_register_temporary_user'], 'TemporaryUserController@onRegisterTemporaryUser');
+
+// set password for temporary user
+Router::get(Routes::routes['on_set_password_temporary_user'], 'TemporaryUserController@showSetPasswordTemporaryUser');
+Router::post(Routes::routes['on_set_password_temporary_user'], 'TemporaryUserController@onSetPasswordTemporaryUser');
+
+// scoreboard
+Router::get(Routes::routes['scoreboard'], 'ScoreboardController@showScoreboard');
+Router::get(Routes::routes['scoreboard_game'], 'ScoreboardController@showScoreboardForGame');
+
 /*
  *
  * MIDDLEWARE

@@ -25,5 +25,10 @@ class Routes
         'update_game' => '/update_game',
         'played_games' => '/played_games',
         'register_played_game' => '/register_played_game',
+        'register_temporary_user' => '/register_temporary_user',
+        'on_register_temporary_user' => '/on_register_temporary_user',
+        'on_set_password_temporary_user' => '/on_set_password_temporary_user',
+        'scoreboard' => '/scoreboard',
+        'scoreboard_game' => '/scoreboard/game'
     ];
 }

@@ -7,8 +7,12 @@
                 "<input type=\"email\" name=\"email\" class=\"form-control ownInput\" id=\"email\"
                                placeholder=\"Enter your email\" required minlength=\"2\"/>");
 
+            echo "
+<label>tijdelijk account?</label> &emsp;
+<input type=\"checkbox\" name=\"temp_account\" id=\"temp_account\"
+                   />";
             \Qui\lib\Form::input('Wachtwoord', 'fa-lock', "<input type=\"password\" name=\"password\" class=\"form-control ownInput\" id=\"password\"
-                   placeholder=\"Enter your password\" required/>");
+                   placeholder=\"Enter your password\"/>");
 
             ?>
             <a id="passwordHelpBlock" class="form-text text-muted" href="<?php echo \Qui\lib\Routes::routes['forgotPassword'] ?>">

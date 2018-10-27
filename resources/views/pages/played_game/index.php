@@ -12,7 +12,6 @@
     </h3>
     <ul class="list-group">
         <?php foreach ($playedGames as $playedGame) : ?>
-
         <li class="list-group-item">
             <?php
             $game = null;

@@ -94,14 +94,14 @@ class AuthenticationController
 
     public function onRegister(Request $req, Response $res)
     {
-        $success = Authentication::register($req->params);
+        $success = Authentication::makeProfile($req->params);
         // return some error here if success is false
         $res->redirect(Routes::routes['home'], 200);
     }
 
     public function onLogin(Request $req, Response $res)
     {
-        Authentication::login($req, $res, $req->params['email'], $req->params['password']);
+        Authentication::login($req, $res, $req->params['email'], $req->params['password'], array_key_exists('temp_account', $req->params) && $req->params['temp_account'] === 'on');
     }
 
     public function onLogout(Request $req, Response $res)

@@ -19,10 +19,20 @@ class CAuthentication
         'cost' => CAuthentication::SALTING_ROUNDS
     ];
 
-    public function login(Request $req, Response $res, string $email, string $password)
+    public function login(Request $req, Response $res, string $email, string $password, $isTemporary)
     {
-        $user = $this->verifyCredentials($email, $password);
-        if ($user['isValid'] == true) {
+        $user = ['isValid' => false];
+        if (!!$email && !!$password) {
+            $user = $this->verifyCredentials($email, $password);
+        }
+        if ($user['isValid'] == true || $isTemporary) {
+            if ($isTemporary) {
+                $user = (DB::selectWhere('*', 'users', 'email', $email))[0];
+                if ($user['password'] != App::TEMPORARY_USER_PASSWORD) {
+                    $res->redirect('/', 401);
+                    return;
+                }
+            }
             // 1 week cookie time()+60*60*24*365 sec = 1 week
             // TODO enable secure option to avoi man-in-the-middle attacks
             if (App::isDevelopmentEnviroment()) {
@@ -30,9 +40,10 @@ class CAuthentication
             } else if (App::isProductionEnviroment()) {
                 setcookie('token', $user['rememberMeToken'], time() + 60 * 60 * 24 * 7, '/', "", true);
             }
-            $res->redirect('/', 200);
+
+            $res->redirect(Routes::routes['home'], 200);
         } else {
-            $res->redirect('/', 401);
+            $res->redirect(Routes::routes['home'], 401);
         }
     }
 
@@ -143,6 +154,9 @@ class CAuthentication
         $users = DB::selectAll('users');
         foreach ($users as $user) {
             // if matches, user has filled in correct password
+            if ($user['password'] == null) {
+                continue;
+            }
             if ($this->verifyHash($user['password'], $password) && $email == $user['email']) {
                 if (password_needs_rehash($user['password'], PASSWORD_BCRYPT, CAuthentication::HASHING_OPTIONS)) {
                     // since the password is verified to be the correct one we can use the user input here to hash

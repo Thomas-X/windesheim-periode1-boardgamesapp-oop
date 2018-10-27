@@ -10,6 +10,7 @@ namespace Qui\app\http\controllers;
 
 
 use Qui\lib\facades\DB;
+use Qui\lib\facades\DB_PDO;
 use Qui\lib\facades\View;
 use Qui\lib\Request;
 use Qui\lib\Response;
@@ -35,20 +36,25 @@ class PlayedGameController
     {
         DB::insertEntry('playedgames', [
             'score' => $req->params['score'],
-            'Games_id' => $req->params['game_id']
+            'Games_id' => $req->params['game_id'],
         ]);
         // TODO avoid DRY.
-        function addLoseOrWin($req, $paramName, $profileKey) {
+        $addLoseOrWin = function ($req, $paramName, $profileKey) {
             foreach ($req->params[$paramName] as $p) {
                 $profile = DB::selectWhere('*', 'profiles', 'id', $p)[0];
                 DB::updateEntry($profile['id'], 'profiles', [
                     $profileKey => ($profile[$profileKey] + 1),
                     'totalGames' => ($profile['totalGames'] + 1)
                 ]);
+                DB::insertEntry('playedgameuserscore', [
+                    'Games_id' => $req->params['game_id'],
+                    'profiles_id' => $profile['id'],
+                    'didWin' => $paramName === 'playerlose' ? 0 : 1
+                ]);
             }
-        }
-        addLoseOrWin($req, 'playerlose', 'losses');
-        addLoseOrWin($req, 'playerwon', 'wins');
+        };
+        $addLoseOrWin($req, 'playerlose', 'losses');
+        $addLoseOrWin($req, 'playerwon', 'wins');
 
         return $res->redirect(Routes::routes['played_games']);
     }

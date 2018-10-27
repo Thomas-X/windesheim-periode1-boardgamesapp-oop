@@ -3,6 +3,17 @@
 // Used for (composer) autoloading
 require __DIR__ . '/../bootstrap.php';
 
+/*
+ *  • DONE Authenticatie van gebruikers – registratie, inloggen en wachtwoord vergeten.
+    • DONE Profiel en gebruikers zijn niet hetzelfde.
+    • DONE Registratie en onderhouden van verschillende bordspellen
+    • DONE Registratie van scores voor een gespeeld spel.
+    • DONE Registratie van tijdelijke spelers
+    • Overzicht/Rapportages van de gespeelden spellen, scores, stand ten op zichte van andere geregistreerde spelers.
+ *
+ *
+ * */
+
 use Qui\lib\App;
 use Qui\lib\Database;
 use Qui\lib\CView;
