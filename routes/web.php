@@ -48,6 +48,8 @@ Router::get(Routes::$routes['scoreboard_game'], 'ScoreboardController@showScoreb
  *
  * */
 
+dd('hello world', get_defined_vars());
+
 /*
  * Forgot password token verification middleware
  * */
@@ -75,7 +77,6 @@ Router::middleware(['AuthenticationMiddleware@shouldBeLoggedIn'], [
     ]
 ]);
 
-dd('hello world', get_defined_vars());
 
 /*
  * Should not be logged in middleware
