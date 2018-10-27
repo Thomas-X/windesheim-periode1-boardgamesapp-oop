@@ -32,10 +32,10 @@ class Routes
         'scoreboard_game' => '/scoreboard/game'
     ];
 
-    public static function morphRoutes($domain)
+    public static function morphRoutes($path)
     {
         foreach (Routes::$routes as $key => $route) {
-            Routes::$routes[$key] = $domain . Routes::$routes[$key];
+            Routes::$routes[$key] = $path . Routes::$routes[$key];
         }
         var_dump(Routes::$routes);
         die;

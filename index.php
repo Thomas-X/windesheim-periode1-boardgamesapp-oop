@@ -24,7 +24,7 @@ use Qui\lib\CValidator;
 use Qui\lib\CMailer;
 use Qui\lib\CNotifierParser;
 
-\Qui\lib\Routes::morphRoutes("https://adsd.clow.nl/~s1130146/P1_OOAPP_Opdracht");
+\Qui\lib\Routes::morphRoutes("/~s1130146/P1_OOAPP_Opdracht");
 
 $_ENV = [];
 // setup ENV variables before setting up database classes etc
