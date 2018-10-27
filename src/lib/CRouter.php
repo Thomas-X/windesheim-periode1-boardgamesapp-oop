@@ -156,7 +156,6 @@ class CRouter
         $controllerInstance = new $controllerNameSpaced;
         $req = new Request();
         $res = new Response();
-        dd('HELLO WORLD', get_defined_vars());
         // dont echo because we're using requires and not a templating engine
         // unless we're returning something else than false (which the View::render method returns)
         // which means we're returning JSON or something else
