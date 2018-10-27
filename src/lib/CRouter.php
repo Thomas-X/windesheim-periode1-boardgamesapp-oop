@@ -38,13 +38,14 @@ class CRouter
      * */
     public function serve(): void
     {
-        dd('HELLO WORLD');
         try {
             $routeMatches = false;
             foreach ($this->routes as $route) {
                 $routeMatches = $this->determineIfRouteMatches($route);
                 $requestedMethod = $_SERVER['REQUEST_METHOD'];
                 $routeMethod = $route['httpRequestType'];
+
+                dd('HELLO WORLD');
 
                 if ($routeMatches && $routeMethod == $requestedMethod) {
                     $this->runController($route['controller'], $route['data']);
