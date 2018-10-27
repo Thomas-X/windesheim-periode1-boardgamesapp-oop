@@ -34,7 +34,6 @@ class Request
         $this->setCookies();
         $this->setServer();
         $this->setHeaders();
-        dd('HELLO WORLD', get_defined_vars());
         $this->setFiles();
         $this->setSecure();
         $this->setMethod();
