@@ -89,8 +89,8 @@ class CRouter
             $middlewareInstance = new $middlewareNameSpaced;
             $req = new Request();
             $res = new Response();
-            dd('hello');
             $pass = $middlewareInstance->$middlewareMethod($req, $res);
+            dd('hello');
             if ($pass) {
                 // for every route given in array add it to the routes array (to serve up, since the middleware passed)
                 foreach ($routes as $route) {
