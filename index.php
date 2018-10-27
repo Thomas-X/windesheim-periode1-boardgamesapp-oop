@@ -59,7 +59,7 @@ function dd($val=null, $_=null) {
 }
 try {
     App::run();
-} catch (Exception $exception) {
+} catch (\Exception $exception) {
     var_dump($exception);
     die;
 }
