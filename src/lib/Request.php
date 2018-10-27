@@ -37,7 +37,6 @@ class Request
         $this->setFiles();
         $this->setSecure();
         $this->setMethod();
-        $this->setBody();
     }
 
     private function setParams()
