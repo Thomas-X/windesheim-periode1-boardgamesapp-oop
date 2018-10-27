@@ -87,7 +87,7 @@ class CRouter
             $middlewareMethod = $value[1] ?? 'next';
             $middlewareNameSpaced = "Qui" . '\\' . 'app' . '\\' . 'http' . '\\' . 'middleware' . '\\' . $middlewareName;
             $middlewareInstance = new $middlewareNameSpaced;
-
+            dd('hello');
             $req = new Request();
             $res = new Response();
             $pass = $middlewareInstance->$middlewareMethod($req, $res);
@@ -111,7 +111,6 @@ class CRouter
                 // header("HTTP/1.0 401 Unauthorized");
                 // exit;
                 // instead of 401 just redirect to home
-                dd('hello');
                     header('Location: ' . Routes::$routes['home']);
                 exit;
 
