@@ -154,8 +154,8 @@ class CRouter
 
         $controllerNameSpaced = "Qui" . '\\' . 'app' . '\\' . 'http' . '\\' . 'controllers' . '\\' . $controllerName;
         $controllerInstance = new $controllerNameSpaced;
-        $req = new Request();
         dd('HELLO WORLD', get_defined_vars());
+        $req = new Request();
         $res = new Response();
         // dont echo because we're using requires and not a templating engine
         // unless we're returning something else than false (which the View::render method returns)
