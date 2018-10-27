@@ -35,6 +35,7 @@ class Request
         $this->setServer();
         $this->setHeaders();
         $this->setFiles();
+        dd('HELLO WORLD', get_defined_vars());
         $this->setSecure();
         $this->setMethod();
         $this->setBody();
