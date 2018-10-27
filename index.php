@@ -28,7 +28,6 @@ use Qui\lib\CNotifierParser;
 
 set_error_handler(function($errno, $errstr, $errfile, $errline ){
     var_dump(new ErrorException($errstr, $errno, 0, $errfile, $errline));
-    die;
 });
 
 $_ENV = [];
