@@ -26,10 +26,10 @@ class Main:
         msg['body'] = body
         msg.attach(MIMEText(body, 'html'))
         text = msg.as_string()
-        print('hello world')
         # start stmp server and send mail afterwards shutting down the stmp server (yes this is inefficient with
         # large batches of email i am aware)
         server = smtplib.SMTP('smtp.gmail.com', 587)
+        print('hello world')
         server.starttls()
         server.login(fromAddr, pwd)
         server.sendmail(fromAddr, toAddr, text)
