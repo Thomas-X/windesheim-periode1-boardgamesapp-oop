@@ -73,7 +73,7 @@ class TemporaryUserController
         Mailer::setupMail()
             ->to($getParam('email'))
             ->subject('Stel je tijdelijke wachtwoord in')
-            ->body("<html lang='en'><body><h3>Klik op deze <a href='http://localhost:8000/on_set_password_temporary_user?temporaryUserToken={$tmpToken}'>link</a> om je wachtwoord in te stellen</h3><br/><h5>Met vriendelijke groet, <br/><br/> BoardgamesApp</h5></body></html>")
+            ->body("<html lang='en'><body><h3>Klik op deze <a href='https://adsd.clow.nl/~s1130146/P1_OOAPP_Opdracht/on_set_password_temporary_user?temporaryUserToken={$tmpToken}'>link</a> om je wachtwoord in te stellen</h3><br/><h5>Met vriendelijke groet, <br/><br/> BoardgamesApp</h5></body></html>")
             ->send();
 
         NotifierParser::init()

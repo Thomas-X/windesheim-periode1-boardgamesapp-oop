@@ -149,7 +149,7 @@ class AuthenticationController
         Mailer::setupMail()
             ->to($user['email'])
             ->subject('Reset password')
-            ->body("<html lang='en'><body><h3>Klik op deze <a href='http://localhost:8000/resetpassword?forgotPasswordToken={$forgotPasswordToken}'>link</a> om je wachtwoord te resetten</h3><br/><h5>Met vriendelijke groet, <br/><br/> BoardgamesApp</h5></body></html>")
+            ->body("<html lang='en'><body><h3>Klik op deze <a href='https://adsd.clow.nl/~s1130146/P1_OOAPP_Opdracht/resetpassword?forgotPasswordToken={$forgotPasswordToken}'>link</a> om je wachtwoord te resetten</h3><br/><h5>Met vriendelijke groet, <br/><br/> BoardgamesApp</h5></body></html>")
             ->send();
 
         NotifierParser::init()
